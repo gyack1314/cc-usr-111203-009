@@ -1,0 +1,111 @@
+{
+  "nodes": [
+    "depot",
+    "junction",
+    "port",
+    "clinic"
+  ],
+  "terminals": [
+    "depot",
+    "port",
+    "clinic"
+  ],
+  "factors": [
+    {
+      "id": "river",
+      "states": [
+        {
+          "id": "low",
+          "probability": "1"
+        },
+        {
+          "id": "high",
+          "probability": "2/5"
+        }
+      ]
+    },
+    {
+      "id": "rain",
+      "states": [
+        {
+          "id": "mild",
+          "probability": "4/5"
+        },
+        {
+          "id": "severe",
+          "probability": "1/5"
+        },
+        {
+          "id": "impossible",
+          "probability": "0"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "road-a",
+      "u": "depot",
+      "v": "junction",
+      "allowed": {
+        "river": [
+          "low"
+        ]
+      }
+    },
+    {
+      "id": "road-b",
+      "u": "depot",
+      "v": "junction",
+      "allowed": {
+        "rain": [
+          "mild"
+        ]
+      }
+    },
+    {
+      "id": "road-c",
+      "u": "junction",
+      "v": "port",
+      "allowed": {
+        "river": [
+          "low"
+        ]
+      }
+    },
+    {
+      "id": "road-d",
+      "u": "port",
+      "v": "clinic",
+      "allowed": {
+        "rain": [
+          "mild"
+        ]
+      }
+    },
+    {
+      "id": "road-e",
+      "u": "junction",
+      "v": "clinic",
+      "allowed": {}
+    }
+  ],
+  "fortifications": [
+    {
+      "id": "bridge",
+      "edges": [
+        "road-c"
+      ]
+    },
+    {
+      "id": "both",
+      "edges": [
+        "road-a",
+        "road-c"
+      ]
+    }
+  ],
+  "draws": 1999,
+  "seed": 89,
+  "exact_state_budget": 100000
+}
