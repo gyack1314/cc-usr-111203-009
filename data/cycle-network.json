@@ -1,0 +1,69 @@
+{
+  "nodes": [
+    "mill",
+    "forge",
+    "weir"
+  ],
+  "terminals": [
+    "mill",
+    "weir"
+  ],
+  "factors": [
+    {
+      "id": "storm",
+      "states": [
+        {
+          "id": "clear",
+          "probability": "1/2"
+        },
+        {
+          "id": "wild",
+          "probability": "1/2"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "upper-road",
+      "u": "mill",
+      "v": "forge",
+      "allowed": {
+        "storm": [
+          "clear"
+        ]
+      }
+    },
+    {
+      "id": "lower-road",
+      "u": "forge",
+      "v": "weir",
+      "allowed": {
+        "storm": [
+          "clear"
+        ]
+      }
+    },
+    {
+      "id": "bypass-road",
+      "u": "mill",
+      "v": "weir",
+      "allowed": {
+        "storm": [
+          "clear"
+        ]
+      }
+    }
+  ],
+  "fortifications": [
+    {
+      "id": "harden-bypass",
+      "edges": [
+        "bypass-road"
+      ]
+    }
+  ],
+  "draws": 500,
+  "seed": 7,
+  "exact_state_budget": 100000
+}

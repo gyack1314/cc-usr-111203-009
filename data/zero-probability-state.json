@@ -1,0 +1,69 @@
+{
+  "nodes": [
+    "alpha",
+    "beta",
+    "gamma"
+  ],
+  "terminals": [
+    "alpha",
+    "gamma"
+  ],
+  "factors": [
+    {
+      "id": "river",
+      "states": [
+        {
+          "id": "low",
+          "probability": "2/3"
+        },
+        {
+          "id": "high",
+          "probability": "1/3"
+        }
+      ]
+    },
+    {
+      "id": "rain",
+      "states": [
+        {
+          "id": "dry",
+          "probability": "1/2"
+        },
+        {
+          "id": "wet",
+          "probability": "1/2"
+        },
+        {
+          "id": "phantom",
+          "probability": "0"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "link-one",
+      "u": "alpha",
+      "v": "beta",
+      "allowed": {
+        "river": [
+          "low"
+        ]
+      }
+    },
+    {
+      "id": "link-two",
+      "u": "beta",
+      "v": "gamma",
+      "allowed": {
+        "rain": [
+          "dry"
+        ]
+      }
+    }
+  ],
+  "fortifications": [],
+  "draws": 500,
+  "seed": 11,
+  "exact_state_budget": 100000
+}

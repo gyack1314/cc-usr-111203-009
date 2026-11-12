@@ -1,0 +1,30 @@
+{
+  "nodes": [
+    "origin",
+    "north-pass",
+    "south-pass",
+    "destination"
+  ],
+  "terminals": [
+    "origin",
+    "destination"
+  ],
+  "factors": [
+    {"id": "f01", "states": [{"id": "ok", "probability": "1/2"}, {"id": "bad", "probability": "1/2"}]},
+    {"id": "f02", "states": [{"id": "ok", "probability": "1/2"}, {"id": "bad", "probability": "1/2"}]},
+    {"id": "f03", "states": [{"id": "ok", "probability": "1/2"}, {"id": "bad", "probability": "1/2"}]},
+    {"id": "f04", "states": [{"id": "ok", "probability": "1/2"}, {"id": "bad", "probability": "1/2"}]},
+    {"id": "f05", "states": [{"id": "ok", "probability": "1/2"}, {"id": "bad", "probability": "1/2"}]},
+    {"id": "f06", "states": [{"id": "ok", "probability": "1/2"}, {"id": "bad", "probability": "1/2"}]}
+  ],
+  "edges": [
+    {"id": "north-in", "u": "origin", "v": "north-pass", "allowed": {"f01": ["ok"], "f02": ["ok"], "f03": ["ok"]}},
+    {"id": "south-in", "u": "origin", "v": "south-pass", "allowed": {"f04": ["ok"], "f05": ["ok"], "f06": ["ok"]}},
+    {"id": "north-out", "u": "north-pass", "v": "destination", "allowed": {}},
+    {"id": "south-out", "u": "south-pass", "v": "destination", "allowed": {}}
+  ],
+  "fortifications": [],
+  "draws": 200,
+  "seed": 5,
+  "exact_state_budget": 3
+}

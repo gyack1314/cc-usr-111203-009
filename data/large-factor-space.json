@@ -1,0 +1,48 @@
+{
+  "nodes": [
+    "origin",
+    "north-pass",
+    "south-pass",
+    "destination"
+  ],
+  "terminals": [
+    "origin",
+    "destination"
+  ],
+  "factors": [
+    {"id": "f01", "states": [{"id": "ok", "probability": "1/2"}, {"id": "bad", "probability": "1/2"}]},
+    {"id": "f02", "states": [{"id": "ok", "probability": "1/2"}, {"id": "bad", "probability": "1/2"}]},
+    {"id": "f03", "states": [{"id": "ok", "probability": "1/2"}, {"id": "bad", "probability": "1/2"}]},
+    {"id": "f04", "states": [{"id": "ok", "probability": "1/2"}, {"id": "bad", "probability": "1/2"}]},
+    {"id": "f05", "states": [{"id": "ok", "probability": "1/2"}, {"id": "bad", "probability": "1/2"}]},
+    {"id": "f06", "states": [{"id": "ok", "probability": "1/2"}, {"id": "bad", "probability": "1/2"}]},
+    {"id": "f07", "states": [{"id": "ok", "probability": "1/2"}, {"id": "bad", "probability": "1/2"}]},
+    {"id": "f08", "states": [{"id": "ok", "probability": "1/2"}, {"id": "bad", "probability": "1/2"}]},
+    {"id": "f09", "states": [{"id": "ok", "probability": "1/2"}, {"id": "bad", "probability": "1/2"}]},
+    {"id": "f10", "states": [{"id": "ok", "probability": "1/2"}, {"id": "bad", "probability": "1/2"}]},
+    {"id": "f11", "states": [{"id": "ok", "probability": "1/2"}, {"id": "bad", "probability": "1/2"}]},
+    {"id": "f12", "states": [{"id": "ok", "probability": "1/2"}, {"id": "bad", "probability": "1/2"}]},
+    {"id": "f13", "states": [{"id": "ok", "probability": "1/2"}, {"id": "bad", "probability": "1/2"}]},
+    {"id": "f14", "states": [{"id": "ok", "probability": "1/2"}, {"id": "bad", "probability": "1/2"}]},
+    {"id": "f15", "states": [{"id": "ok", "probability": "1/2"}, {"id": "bad", "probability": "1/2"}]},
+    {"id": "f16", "states": [{"id": "ok", "probability": "1/2"}, {"id": "bad", "probability": "1/2"}]},
+    {"id": "f17", "states": [{"id": "ok", "probability": "1/2"}, {"id": "bad", "probability": "1/2"}]}
+  ],
+  "edges": [
+    {"id": "north-in", "u": "origin", "v": "north-pass", "allowed": {"f01": ["ok"], "f02": ["ok"], "f03": ["ok"], "f04": ["ok"], "f13": ["ok"]}},
+    {"id": "south-in", "u": "origin", "v": "south-pass", "allowed": {"f05": ["ok"], "f06": ["ok"], "f07": ["ok"], "f08": ["ok"], "f14": ["ok"]}},
+    {"id": "north-out", "u": "north-pass", "v": "destination", "allowed": {"f09": ["ok"], "f10": ["ok"], "f11": ["ok"], "f15": ["ok"]}},
+    {"id": "south-out", "u": "south-pass", "v": "destination", "allowed": {"f12": ["ok"], "f16": ["ok"], "f17": ["ok"]}}
+  ],
+  "fortifications": [
+    {
+      "id": "harden-north-in",
+      "edges": [
+        "north-in"
+      ]
+    }
+  ],
+  "draws": 2000,
+  "seed": 2026,
+  "exact_state_budget": 100000
+}

@@ -1,0 +1,53 @@
+{
+  "nodes": [
+    "gate",
+    "yard",
+    "shed"
+  ],
+  "terminals": [
+    "gate",
+    "shed"
+  ],
+  "factors": [
+    {
+      "id": "flood",
+      "states": [
+        {
+          "id": "calm",
+          "probability": "3/7"
+        },
+        {
+          "id": "surge",
+          "probability": "4/7"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "blocked-causeway",
+      "u": "gate",
+      "v": "yard",
+      "allowed": {
+        "flood": []
+      }
+    },
+    {
+      "id": "open-track",
+      "u": "yard",
+      "v": "shed",
+      "allowed": {}
+    }
+  ],
+  "fortifications": [
+    {
+      "id": "repair-causeway",
+      "edges": [
+        "blocked-causeway"
+      ]
+    }
+  ],
+  "draws": 300,
+  "seed": 3,
+  "exact_state_budget": 100000
+}

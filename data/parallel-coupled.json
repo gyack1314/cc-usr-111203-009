@@ -1,0 +1,58 @@
+{
+  "nodes": [
+    "north-bank",
+    "south-bank"
+  ],
+  "terminals": [
+    "north-bank",
+    "south-bank"
+  ],
+  "factors": [
+    {
+      "id": "river",
+      "states": [
+        {
+          "id": "calm",
+          "probability": "3/4"
+        },
+        {
+          "id": "flood",
+          "probability": "1/4"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "bridge-one",
+      "u": "north-bank",
+      "v": "south-bank",
+      "allowed": {
+        "river": [
+          "calm"
+        ]
+      }
+    },
+    {
+      "id": "bridge-two",
+      "u": "north-bank",
+      "v": "south-bank",
+      "allowed": {
+        "river": [
+          "calm"
+        ]
+      }
+    }
+  ],
+  "fortifications": [
+    {
+      "id": "harden-one",
+      "edges": [
+        "bridge-one"
+      ]
+    }
+  ],
+  "draws": 500,
+  "seed": 42,
+  "exact_state_budget": 100000
+}
